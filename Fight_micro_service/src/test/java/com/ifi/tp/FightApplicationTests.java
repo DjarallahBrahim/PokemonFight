@@ -1,4 +1,4 @@
-package com.ifi.tp.fight;
+package com.ifi.tp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

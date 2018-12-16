@@ -1,4 +1,4 @@
-package com.ifi.tp.fight;
+package com.ifi.tp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
