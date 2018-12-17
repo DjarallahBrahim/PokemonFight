@@ -27,7 +27,7 @@ public class FightServiceImpl implements FightService{
     }
 
     @Override
-    public void initFight(String trainer1 ,String trainer2) {
+    public Fight fight(String trainer1 ,String trainer2) {
 
         //get trainers data
         this.trainer1 = trainerService.getTrainer(trainer1);
@@ -38,6 +38,8 @@ public class FightServiceImpl implements FightService{
         fight.setTrainer2(trainer2);
 
         this.startFight();
+
+        return this.fight;
     }
 
     private void startFight() {

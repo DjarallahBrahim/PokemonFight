@@ -8,9 +8,8 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Round {
-
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @NotNull
     private int number;
