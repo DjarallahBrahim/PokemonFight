@@ -2,6 +2,7 @@ package com.ifi.tp.fight.service;
 
 import com.ifi.tp.fight.bo.Fight;
 import com.ifi.tp.fight.bo.Round;
+import com.ifi.tp.pokemonTypes.service.PokemonService;
 import com.ifi.tp.trainers.bo.Pokemon;
 import com.ifi.tp.trainers.bo.Trainer;
 import com.ifi.tp.trainers.service.TrainerService;
@@ -13,21 +14,21 @@ public class FightServiceImpl implements FightService{
 
     TrainerService trainerService;
 
+    PokemonService pokemonService;
     Trainer trainer1, trainer2;
 
     Fight fight;
 
 
     @Autowired
-    public FightServiceImpl(TrainerService trainerService) {
+    public FightServiceImpl(TrainerService trainerService, PokemonService pokemonService) {
         this.trainerService = trainerService;
-        this.trainer1 = trainer1;
-        this.trainer2 = trainer2;
-        this.fight = new Fight();
+        this.pokemonService = pokemonService;
     }
 
     @Override
     public Fight fight(String trainer1 ,String trainer2) {
+        this.fight = new Fight();
 
         //get trainers data
         this.trainer1 = trainerService.getTrainer(trainer1);
@@ -132,7 +133,12 @@ public class FightServiceImpl implements FightService{
             pokemon1.getType().getStats().setHp(pokemon1.getType().getStats().getHp() + hpHint);
         }
 
-        Round round = new Round(roundNumber, pokemon1.getPokemonNumber(), pokemon2.getPokemonNumber(),hpHint,pk1Attack );
+        var pokemon1Name = this.pokemonService.getPokemonType(pokemon1.getPokemonNumber()).getName();
+        var pokemon2Name = this.pokemonService.getPokemonType(pokemon2.getPokemonNumber()).getName();
+
+        Round round = new Round(roundNumber, pokemon1.getPokemonNumber(),
+                                pokemon2.getPokemonNumber(),hpHint,pk1Attack,
+                pokemon1Name,pokemon2Name);
 
         return round;
     }
