@@ -55,4 +55,7 @@ public class TrainerServiceImpl implements TrainerService {
     void setPokemonService(PokemonService pokemonService) {
         this.pokemonService = pokemonService;
     }
+
+
+
 }

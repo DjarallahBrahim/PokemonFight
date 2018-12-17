@@ -21,4 +21,12 @@ public class CombatsService implements  CombatsServiceInte {
         var fight = restTemplate.getForObject(url, Fight.class);
         return fight;
     }
+
+
+    @Override
+    public Fight getCombatsHestory(String trainer1) {
+        var url ="http://localhost:8087/trainers/"+trainer1+"/history/";
+        var fight = restTemplate.getForObject(url, Fight.class);
+        return fight;
+    }
 }

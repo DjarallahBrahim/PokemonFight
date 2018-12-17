@@ -1,11 +1,12 @@
 package com.ifi.tp.controller;
 
+import com.ifi.tp.Combats.CombatService.CombatsService;
+import com.ifi.tp.Combats.boo.Fight;
 import com.ifi.tp.trainers.service.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -13,6 +14,8 @@ public class TrainerController {
 
     @Autowired
     private TrainerService trainerService;
+    @Autowired
+    private CombatsService combatsService;
 
     @GetMapping("/trainers")
     ModelAndView index(){
@@ -33,8 +36,16 @@ public class TrainerController {
     }
 
     @GetMapping("/trainers/{name}/combatsHistory")
-    String historyCombats(@PathVariable String name){
-        return "history";
+    Fight historyCombats(@PathVariable String name){
+
+        Fight fight = this.combatsService.getCombatsHestory(name);
+
+        var modelAndView = new ModelAndView("history");
+
+        modelAndView.addObject("history", fight);
+
+
+        return fight;
     }
 
 
