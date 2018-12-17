@@ -1,9 +1,8 @@
 package com.ifi.tp.fight.bo;
 
-import com.ifi.tp.trainers.bo.Trainer;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 public class Fight {
@@ -12,23 +11,25 @@ public class Fight {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @NotNull
-    private Long trainer1, trainer2;
+    private String trainer1, trainer2;
 
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
     private List<Round> rounds;
 
-    private int idWinner;
+    private String Winner;
 
     public Fight() {
-
+        this.rounds = new ArrayList<Round>();
     }
 
-    public Fight(@NotNull long trainer1, @NotNull long trainer2, List<Round> rounds, int idWinner) {
+    public Fight(@NotNull String trainer1, @NotNull String trainer2, List<Round> rounds, String winner) {
         this.trainer1 = trainer1;
         this.trainer2 = trainer2;
         this.rounds = rounds;
-        this.idWinner = idWinner;
+        Winner = winner;
+        this.rounds = new ArrayList<Round>();
+
     }
 
     public int getId() {
@@ -39,19 +40,19 @@ public class Fight {
         this.id = id;
     }
 
-    public long getTrainer1() {
+    public String getTrainer1() {
         return trainer1;
     }
 
-    public void setTrainer1(long trainer1) {
+    public void setTrainer1(String trainer1) {
         this.trainer1 = trainer1;
     }
 
-    public long getTrainer2() {
+    public String getTrainer2() {
         return trainer2;
     }
 
-    public void setTrainer2(long trainer2) {
+    public void setTrainer2(String trainer2) {
         this.trainer2 = trainer2;
     }
 
@@ -63,11 +64,15 @@ public class Fight {
         this.rounds = rounds;
     }
 
-    public int getIdWinner() {
-        return idWinner;
+    public String getWinner() {
+        return Winner;
     }
 
-    public void setIdWinner(int idWinner) {
-        this.idWinner = idWinner;
+    public void setWinner(String winner) {
+        Winner = winner;
+    }
+
+    public void addRound(Round e){
+        this.rounds.add(e);
     }
 }

@@ -11,36 +11,36 @@ public class Round {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private Long id;
+    private int id;
     @NotNull
-    private Long number;
+    private int number;
     @NotNull
     private int idPokemon1, idPokemon2;
     @NotNull
-    private int hpHints;
+    private int hpHints;//if positive the pokemon1 will lose hpHints if negative the pokemon 2 will lose |hpHints|
 
     public Round(){}
 
-    public Round(Long number, int idPokemon1, int idPokemon2, int hpHints) {
+    public Round(@NotNull int number, @NotNull int idPokemon1, @NotNull int idPokemon2, @NotNull int hpHints) {
         this.number = number;
         this.idPokemon1 = idPokemon1;
         this.idPokemon2 = idPokemon2;
         this.hpHints = hpHints;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Long getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(Long number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 
