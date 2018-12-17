@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
@@ -28,7 +29,7 @@ public class CombatsController {
     @RequestMapping(
             value = "/combats/fight",
             params = { "trainer1", "trainer2" },
-            method = POST)
+            method = GET)
     @ResponseBody
     ModelAndView index(@RequestParam String trainer1, @RequestParam String trainer2){
         var modelAndView = new ModelAndView("combatResult");

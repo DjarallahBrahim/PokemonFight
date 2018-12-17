@@ -6,33 +6,39 @@
 {{> layout/nav}}
 
 <div class="container">
-    <h1 class="pt-md-5 pb-md-5">Trainer : ISlam <img src="/chen.png" style="height: 100px;"/></h1>
-    <img src="/icons/fist.png" style="margin-bottom: 25px" height="70" width="70"/> <span style="font-size: 25px; font-weight: bold; color: orange; margin-bottom: 20px"> Fights: </span>
+    <h1 class="pt-md-5 pb-md-5">History<img src="/icons/fight.png" style="height: 180px;"/></h1>
     <div/>
     <table class="table">
     <thead class="thead-dark">
     <tr>
         <th scope="col">#</th>
-        <th scope="col">Trainer</th>
+        <th scope="col">Fights</th>
         <th scope="col">Result</th>
     </tr>
     </thead>
     <tbody>
+    {{#historytmp}}
     <tr>
         <th scope="row">1</th>
-        <td><a href="#">Mark</a></td>
-        <td><a href="#" class="badge badge-success">Success</a></td>
+        <td><a href="#">{{enemy}}</a></td>
+        {{#result}}
+            <td><a href="#" class="badge badge-success">Win</a></td>
+        {{/result}}
+        {{^result}}
+        <td><a href="#"+ class="badge  badge-danger" style="width: 100px; height: 15px; font-weight: bold">Lose</a></td>
+        {{/result}}
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td><a href="combatsHistory/Jacob">Jacob</a></td>
-        <td><a href="#" class="badge badge-success">Success</a></td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td><a href="#">Larry</a></td>
-        <td><a href="#" class="badge badge-danger">Success</a></td>
-    </tr>
+    {{/historytmp}}
+    <!--<tr>-->
+        <!--<th scope="row">2</th>-->
+        <!--<td><a href="combatsHistory/Jacob">Jacob</a></td>-->
+        <!--<td><a href="#" class="badge badge-success">Success</a></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<th scope="row">3</th>-->
+        <!--<td><a href="#">Larry</a></td>-->
+        <!--<td><a href="#" class="badge badge-danger">Success</a></td>-->
+    <!--</tr>-->
     </tbody>
 </table>
     <a href="/combats" class="badge badge-danger" style="margin-bottom: 25px"><img src="/icons/battle.png"  height="70" width="70"/> <span style="font-size: 25px; font-weight: bold; color: white; margin-bottom: 20px"> Start fight</span></a>
