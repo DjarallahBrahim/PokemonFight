@@ -1,23 +1,23 @@
 package com.ifi.tp.fight.bo;
 
 public class Round {
-    private int pokemon1, pokemon2;
+    private int idPokemon1, idPokemon2;
     private int hpHints;
 
-    public int getPokemon1() {
-        return pokemon1;
+    public int getIdPokemon1() {
+        return idPokemon1;
     }
 
-    public void setPokemon1(int pokemon1) {
-        this.pokemon1 = pokemon1;
+    public void setIdPokemon1(int idPokemon1) {
+        this.idPokemon1 = idPokemon1;
     }
 
-    public int getPokemon2() {
-        return pokemon2;
+    public int getIdPokemon2() {
+        return idPokemon2;
     }
 
-    public void setPokemon2(int pokemon2) {
-        this.pokemon2 = pokemon2;
+    public void setIdPokemon2(int idPokemon2) {
+        this.idPokemon2 = idPokemon2;
     }
 
     public int getHpHints() {
