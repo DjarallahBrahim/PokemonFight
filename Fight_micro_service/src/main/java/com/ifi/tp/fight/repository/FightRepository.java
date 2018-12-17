@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FightRepository extends CrudRepository<Fight, Integer> {
+
+    Iterable<Fight> findByTrainer1OrTrainer2(String trainer1,String trainer2);
 }
