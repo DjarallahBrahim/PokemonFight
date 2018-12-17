@@ -2,6 +2,7 @@ package com.ifi.tp.fight.service;
 
 import com.ifi.tp.fight.bo.Fight;
 import com.ifi.tp.fight.bo.Round;
+import com.ifi.tp.notification.NotificationService;
 import com.ifi.tp.pokemonTypes.service.PokemonService;
 import com.ifi.tp.trainers.bo.Pokemon;
 import com.ifi.tp.trainers.bo.Trainer;
@@ -19,11 +20,13 @@ public class FightServiceImpl implements FightService{
 
     Fight fight;
 
+    NotificationService notificationService;
 
     @Autowired
-    public FightServiceImpl(TrainerService trainerService, PokemonService pokemonService) {
+    public FightServiceImpl(TrainerService trainerService, PokemonService pokemonService, NotificationService notificationService) {
         this.trainerService = trainerService;
         this.pokemonService = pokemonService;
+        this.notificationService = notificationService;
     }
 
     @Override
@@ -71,6 +74,17 @@ public class FightServiceImpl implements FightService{
             while (hpNotNullForBoth(pokemon1,pokemon2)) {//hp still for current pokemon
 
                 Round round = this.calculateRound(pokemon1,pokemon2,numRound,pk1Attack);
+
+                //send notification
+                if(round.isPok1Attack()){
+                    if (round.getHpHints()>=0)
+                        notificationService.sendNotification(round.getPokemon1()+" htis "+round.getPokemon2());
+                    else
+                        notificationService.sendNotification(round.getPokemon1()+" htis "+round.getPokemon2()+" lose "+round.getHpHints()+"HP");
+                }else {
+                    notificationService.sendNotification(round.getPokemon2()+" htis "+round.getPokemon1()+" lose "+round.getHpHints()+"HP");
+                }
+
 
                 //le tour d'attack pass
                 pk1Attack = (!pk1Attack);
