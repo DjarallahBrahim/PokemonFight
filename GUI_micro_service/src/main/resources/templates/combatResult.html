@@ -6,7 +6,7 @@
 {{> layout/nav}}
 
 <div class="container">
-    <h1 class="pt-md-5 pb-md-5">Trainer : {{combatResult.winner}} <img src="/chen.png" style="height: 100px;"/></h1>
+    <h1 class="pt-md-5 pb-md-5">Winner is : {{combatResult.winner}} <img src="/icons/fist.png" style="height: 100px;"/></h1>
     <img src="/icons/result.jpg" style="margin-bottom: 25px" height="70" width="70"/> <span style="font-size: 25px; font-weight: bold; color: orange; margin-bottom: 20px"> Result: </span>
     <div/>
     <table class="table">
@@ -18,13 +18,23 @@
         </thead>
         <tbody>
         {{#combatResult.rounds}}
-        <tr>
-            <th scope="row">{{number}}</th>
-            {{#hpHints}}
-            <td>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</td>
-            {{/hpHints}}
+            <tr>
+                {{#isPok1Attack}}
+                {{#hpHints}}
+                         <th scope="row">{{number}}</th>
+                        <td>{{pokemon1}} hits {{pokemon2}} HP</td>
+                {{/hpHints}}
+                {{^hpHints}}
+                <th scope="row">{{number}}</th>
+                <td>{{pokemon1}} hits {{pokemon2}} lose {{hpHints}} HP</td>
+                {{/hpHints}}
+                {{/isPok1Attack}}
+                {{^isPok1Attack}}
+                    <th scope="row">{{number}}</th>
+                    <td>{{pokemon2}} hits {{pokemon1}}, lose {{hpHints}} HP</td>
+                {{/isPok1Attack}}
 
-        </tr>
+            </tr>
        {{/combatResult.rounds}}
         </tbody>
     </table>

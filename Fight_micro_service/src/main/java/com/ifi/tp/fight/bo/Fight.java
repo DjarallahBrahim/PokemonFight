@@ -8,8 +8,9 @@ import java.util.List;
 public class Fight {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @NotNull
     private String trainer1, trainer2;
 
