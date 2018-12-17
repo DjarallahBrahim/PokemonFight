@@ -17,14 +17,16 @@ public class Round {
     private int idPokemon1, idPokemon2;
     @NotNull
     private int hpHints;//if positive the pokemon1 will lose hpHints if negative the pokemon 2 will lose |hpHints|
-
+    @NotNull
+    private boolean pok1Attack;
     public Round(){}
 
-    public Round(@NotNull int number, @NotNull int idPokemon1, @NotNull int idPokemon2, @NotNull int hpHints) {
+    public Round(@NotNull int number, @NotNull int idPokemon1, @NotNull int idPokemon2, @NotNull int hpHints, @NotNull boolean pok1Attack) {
         this.number = number;
         this.idPokemon1 = idPokemon1;
         this.idPokemon2 = idPokemon2;
         this.hpHints = hpHints;
+        this.pok1Attack = pok1Attack;
     }
 
     public int getId() {
@@ -65,5 +67,13 @@ public class Round {
 
     public void setHpHints(int hpHints) {
         this.hpHints = hpHints;
+    }
+
+    public boolean isPok1Attack() {
+        return pok1Attack;
+    }
+
+    public void setPok1Attack(boolean pok1Attack) {
+        this.pok1Attack = pok1Attack;
     }
 }

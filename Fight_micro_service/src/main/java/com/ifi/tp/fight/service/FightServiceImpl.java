@@ -132,7 +132,7 @@ public class FightServiceImpl implements FightService{
             pokemon1.getType().getStats().setHp(pokemon1.getType().getStats().getHp() + hpHint);
         }
 
-        Round round = new Round(roundNumber, pokemon1.getPokemonNumber(), pokemon2.getPokemonNumber(),hpHint );
+        Round round = new Round(roundNumber, pokemon1.getPokemonNumber(), pokemon2.getPokemonNumber(),hpHint,pk1Attack );
 
         return round;
     }
