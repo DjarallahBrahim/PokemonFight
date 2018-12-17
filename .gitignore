@@ -12,6 +12,7 @@
 */.idea/**/dictionaries
 */.idea/**/shelf
 */.idea/*
+GUI_micro_service/.idea/**
 # Generated files
 .idea/**/contentModel.xml
 

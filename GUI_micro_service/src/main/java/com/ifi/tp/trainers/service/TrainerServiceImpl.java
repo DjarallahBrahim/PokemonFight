@@ -1,15 +1,14 @@
 package com.ifi.tp.trainers.service;
 
-import java.util.Arrays;
-import java.util.List;
-
-import com.ifi.tp.trainers.bo.Trainer;
-
 import com.ifi.tp.pokemonTypes.service.PokemonService;
+import com.ifi.tp.trainers.bo.Trainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class TrainerServiceImpl implements TrainerService {
