@@ -19,4 +19,8 @@ public class IndexController {
         return modelAndView;
     }
 
+    @GetMapping("/combats")
+    String combats(){
+        return "combats";
+    }
 }
