@@ -10,8 +10,6 @@ public class Fight {
 
     private int id;
     private String trainer1, trainer2;
-
-
     private List<Round> rounds;
 
     private String Winner;

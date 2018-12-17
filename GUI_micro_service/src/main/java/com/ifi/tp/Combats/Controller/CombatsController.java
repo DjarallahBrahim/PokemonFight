@@ -1,12 +1,12 @@
 package com.ifi.tp.Combats.Controller;
 
 import com.ifi.tp.Combats.CombatService.CombatsService;
-import com.ifi.tp.Combats.boo.Fight;
 import org.springframework.stereotype.Controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -25,9 +25,13 @@ public class CombatsController {
             params = { "trainer1", "trainer2" },
             method = POST)
     @ResponseBody
-    Fight index(@RequestParam String trainer1, @RequestParam String trainer2){
+    ModelAndView index(@RequestParam String trainer1, @RequestParam String trainer2){
 
-        return this.combatsService.startCombat(trainer1,trainer2);
+        var modelAndView = new ModelAndView("combatResult");
+
+        modelAndView.addObject("combatResult", this.combatsService.startCombat(trainer1,trainer2));
+
+        return modelAndView;
     }
 
 
