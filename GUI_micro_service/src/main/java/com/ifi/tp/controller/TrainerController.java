@@ -1,7 +1,6 @@
 package com.ifi.tp.controller;
 
 import com.ifi.tp.trainers.service.TrainerService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
