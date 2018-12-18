@@ -47,10 +47,6 @@ public class TrainerController {
 
         List<HestoryCombatTPM> hestoryCombatTPMList= new ArrayList<>();
 
-//        String [] enemi = new String[fight.length];
-//        boolean [] result = new boolean[fight.length];
-
-
         for(int i=0; i< fight.length; i++){
             HestoryCombatTPM tmpHestpry = new HestoryCombatTPM();
             tmpHestpry.setTrainerAsker(name);
@@ -82,6 +78,19 @@ public class TrainerController {
     @GetMapping("/trainers/{name}/combatsHistory/{enemi}")
     String historyCombat(@PathVariable String name){
         return "historyOneCombat";
+    }
+
+
+    @GetMapping("/trainers/arena/{name}")
+    @ResponseBody
+    ModelAndView arena(@PathVariable String name){
+
+        var modelAndView = new ModelAndView("arena");
+
+        modelAndView.addObject("arena", trainerService.getAllTrainers());
+        modelAndView.addObject("asker", name);
+
+        return modelAndView;
     }
 
 }

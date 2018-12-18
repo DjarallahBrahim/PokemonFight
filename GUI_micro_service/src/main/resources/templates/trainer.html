@@ -6,7 +6,8 @@
 {{> layout/nav}}
     <div class="container">
         <h1 class="pt-md-5 pb-md-5">Trainer : {{trainer.name}} <img src="{{trainer.picture}}" style="height: 100px;"/>
-            <a href="/trainers/{{trainer.name}}/combatsHistory"><img src="/icons/fist.png" height="70" width="70"/></a> </h1>
+            <a href="/trainers/{{trainer.name}}/combatsHistory"><img src="/icons/fist.png" height="70" width="70"/></a>
+            <a href="/trainers/arena/{{trainer.name}}"><img src="/icons/battle.png" height="70" width="70"/></a></h1>
 
         <div class="card-deck">
             {{#trainer.team}}
